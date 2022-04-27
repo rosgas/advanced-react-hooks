@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Advanced react hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Repository with some code examples and notes about advanced react hooks.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- <a href="#useRef">useRef hook</a>
+- <a href="#useMemo">useMemo hook</a>
+- <a href="#useCallback">useCallback</a>
+- <a href="#custom-hooks">Custom hooks</a>
+- <a href="#useful-links">Useful links</a>
+- <a href="#setup-section">Installation/Usage</a>
+- <a href="#acknowledgments-section">Acknowledgments</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h2 id='useRef'>useRef hook</h2>
 
-### `npm test`
+**1. Example 1:**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Create DOM reference adding a ref attribute to an element to access it directly in the DOM.
 
-### `npm run build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. Example 2:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Get previous state.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+**3. Example 3:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Memory leack error fix.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+React components that perform state updates and run asynchronous operations can cause memory leak issues if the state is updated after the component is unmounted.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+You may encounter the following warning message in React application when working with asynchronous calls:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
+Warning: Can't perform a React state update on an unmounted component.
+This is a no-op, but it indicates a memory leak in your application.
+To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+```
 
-## Learn More
+With combination of useRef and useEffect, we could cleanup memory leaks.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h2 id='useMemo'> useMemo hook </h2>
+It can be used for performance optimization. Returns a memoized value.
+<br>
+Pass a “create” function and an array of dependencies. useMemo will only recompute the memoized value when one of the dependencies has changed.
 
-### Code Splitting
+<br>
+This optimization helps to avoid expensive calculations on every render.
+(use this as a last resource: there are consequences to overusing it so it is better to use it only when there are performance issues)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
 
-### Analyzing the Bundle Size
+<h2 id='useCallback'> useCallback hook </h2>
+It can be used for performance optimization. Returns a memoized callback. 
+<br>
+Pass an inline callback and an array of dependencies. useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
 
-### Making a Progressive Web App
+In some ways, it's similar to useMemo, but the big difference is that useMemo returns a memoized value and useCallback returns a memoized callback function.
+<br>
+Both expect a function and an array of dependencies. UseMemo calls the function and returns the result when the dependencies change and use callback returns the function when the dependencies change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br>
 
-### Advanced Configuration
+<h2 id='custom-hooks'>Custom hooks</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**1. useFetch:**
+To make HTTP requests
 
-### Deployment
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**2. useLocalStorage:**
+To store items in local storage as well as your state
 
-### `npm run build` fails to minify
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2 id="useful-links">Useful links</h2>
+
+- [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html#usecallback)
+
+- [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
+
+- [An Intro to Advanced React Hooks](https://medium.com/in-the-weeds/an-intro-to-advanced-react-hooks-a8af6397fe28)
+
+<br>
+
+<h2 id="setup-section">Installation/Usage</h2>
+
+**1. Clone this repo:**
+
+```
+git clone https://github.com/rosgas/advanced-react-hooks.git
+```
+
+**2. Installation**
+
+```
+npm install
+```
+
+**3. Then run**
+
+After all dependencies have been installed you can run the app locally in development mode or you can built out the static assets to deploy them on any webserver.
+
+- **Run the app in development mode**
+
+  After installing all dependencies you can run the app on the webpack dev server by running the following command:
+
+  ```
+  npm start
+  ```
+
+  Open http://localhost:3000 to view it in the browser.
+
+<br>
+
+You can learn more in the [Create React App documentation.](https://create-react-app.dev/docs/getting-started/)
+
+<br>
+
+<h2 id="acknowledgments-section">Acknowledgments</h2>
+
+- [Traversy Media](https://www.traversymedia.com/)
