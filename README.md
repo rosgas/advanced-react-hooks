@@ -54,6 +54,8 @@ It can be used for performance optimization. Returns a memoized value.
 Pass a “create” function and an array of dependencies. useMemo will only recompute the memoized value when one of the dependencies has changed.
 
 <br>
+<br>
+
 This optimization helps to avoid expensive calculations on every render.
 (use this as a last resource: there are consequences to overusing it so it is better to use it only when there are performance issues)
 
@@ -64,6 +66,7 @@ It can be used for performance optimization. Returns a memoized callback.
 <br>
 Pass an inline callback and an array of dependencies. useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
 
+<br>
 <br>
 
 In some ways, it's similar to useMemo, but the big difference is that useMemo returns a memoized value and useCallback returns a memoized callback function.
