@@ -8,7 +8,7 @@ Repository with some code examples and notes about advanced react hooks.
 
 - <a href="#useRef">useRef hook</a>
 - <a href="#useMemo">useMemo hook</a>
-- <a href="#useCallback">useCallback</a>
+- <a href="#useCallback">useCallback hook</a>
 - <a href="#custom-hooks">Custom hooks</a>
 - <a href="#useful-links">Useful links</a>
 - <a href="#setup-section">Installation/Usage</a>
@@ -115,7 +115,7 @@ npm install
 
 After all dependencies have been installed you can run it locally in development mode or you can built out the static assets to deploy them on any webserver.
 
-- **Run the app in development mode**
+- **Development mode**
 
   After installing all dependencies you can run it on the webpack dev server by running the following command:
 
