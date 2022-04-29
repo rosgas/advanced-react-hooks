@@ -113,11 +113,11 @@ npm install
 
 **3. Then run**
 
-After all dependencies have been installed you can run the app locally in development mode or you can built out the static assets to deploy them on any webserver.
+After all dependencies have been installed you can run it locally in development mode or you can built out the static assets to deploy them on any webserver.
 
 - **Run the app in development mode**
 
-  After installing all dependencies you can run the app on the webpack dev server by running the following command:
+  After installing all dependencies you can run it on the webpack dev server by running the following command:
 
   ```
   npm start
